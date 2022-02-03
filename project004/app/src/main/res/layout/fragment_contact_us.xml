@@ -8,6 +8,7 @@
     android:textAlignment="center"
     tools:context=".ContactUsFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
@@ -57,7 +58,6 @@
             android:text="Email"
             android:textColor="#311B92"
             android:textSize="20sp"
-            android:onClick="@{(v)-> clickHandler.onClick(v)}"
             android:textStyle="bold" />
     </LinearLayout>
 

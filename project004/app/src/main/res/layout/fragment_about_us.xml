@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AboutUsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CONTACT US"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#FF0000"
+        android:text="ABOUT US "
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="34sp" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="pdiperjuangan.id merupakan situs web resmi Dewan Pimpinan Pusat Partai Demokrasi Indonesia Perjuangan (DPP PDI Perjuangan). Situs yang dikendalikan oleh Muhammad Prananda Prabowo ini merupakan induk dari media sosial resmi Partai, di antaranya Facebook, Twitter, Instagram, dan Youtube, serta satu kesatuan dengan aplikasi Media Pintar Perjuangan." />
+
+</LinearLayout>
