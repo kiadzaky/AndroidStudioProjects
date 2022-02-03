@@ -30,19 +30,23 @@
                     android:layout_height="wrap_content"
                     android:padding="20dp">
                     <TextView
-                        android:text="Mega-Chan"
+                        android:background="@color/white"
+                        android:text="Mega-Sama"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Youtuber Politik"
+                        android:text="Ibu Negara  "
+                        android:padding="5dp"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

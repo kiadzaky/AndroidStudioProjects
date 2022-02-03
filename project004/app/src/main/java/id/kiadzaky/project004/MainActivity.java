@@ -1,6 +1,7 @@
 package id.kiadzaky.project004;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -10,8 +11,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,12 +31,37 @@ import id.kiadzaky.project004.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ActionBarDrawerToggle toggle;
-
+    private Button btn_email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.option_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_share:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Download Aplikasi");
+                i.putExtra(Intent.EXTRA_TEXT, "Dapatkan Diskon 10000");
+                startActivity(Intent.createChooser(i, "Bagikan Aplikasi Ini"));
+                break;
+            case R.id.menu_exit:
+                System.exit(1);
+            default:
+                Toast.makeText(this, "ERROR, Please Select Option", Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void initView() {
@@ -59,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         fragment = new HomeFragment();
+                        getSupportActionBar().setTitle("HOME");
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
@@ -74,10 +111,19 @@ public class MainActivity extends AppCompatActivity {
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
+                    case R.id.nav_galley:
+                        fragment = new GalleryFragment();
+                        getSupportActionBar().setTitle("GALLERY Page");
+                        binding.drawer.closeDrawer(GravityCompat.START);
+                        callFragment(fragment);
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this, "Please Select Menu", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
         });
+
 
     }
 
@@ -92,4 +138,5 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null); // supaya nanti dia bisa saling bergantian
         transaction.commit();
     }
+
 }
