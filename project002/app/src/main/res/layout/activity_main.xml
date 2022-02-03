@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="ANDROID LIFE CYCLE"
+        android:textAlignment="center"
+        android:textColor="#4CAF50"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Masukan Nama"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btn_move_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pindah Activity" />
+
+    <Button
+        android:id="@+id/btn_implicit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Implicit Intent" />
+
+</LinearLayout>
