@@ -4,7 +4,7 @@ public class Konfigurasi {
 
     public static final String LINK = "http://192.168.1.54/pegawai/";
     public static final String URL_GET_ALL = LINK+"tampilSemuaPgw.php";
-    public static final String URL_GET_DETAIL = LINK+"tampilPgw.php";
+    public static final String URL_GET_DETAIL = LINK+"tampilPgw.php?id=";
     public static final String URL_ADD = LINK+"tambahPgw.php";
     public static final String URL_UPDATE = LINK+"updatePgw.php";
     public static final String URL_DELETE = LINK +"hapusPgw.php";

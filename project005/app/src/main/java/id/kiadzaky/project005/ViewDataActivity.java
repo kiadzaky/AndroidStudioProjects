@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,8 +62,8 @@ public class ViewDataActivity extends AppCompatActivity implements AdapterView.O
                 super.onPostExecute(message);
                 loading.dismiss();
                 JSON_STRING = message;
-                Toast.makeText(ViewDataActivity.this, message, Toast.LENGTH_SHORT).show();
-                Log.d("DATA_JSON", JSON_STRING);
+//                Toast.makeText(ViewDataActivity.this, message, Toast.LENGTH_SHORT).show();
+//                Log.d("DATA_JSON", JSON_STRING);
                 displayAllData();
             }
         }
@@ -102,8 +103,13 @@ public class ViewDataActivity extends AppCompatActivity implements AdapterView.O
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //list diklik akan tampilkan detail
+        Intent i = new Intent(ViewDataActivity.this, ViewDetailDataActivity.class);
+        HashMap<String,String> map = (HashMap) parent.getItemAtPosition(position);
+        String pgwId = map.get(Konfigurasi.TAG_JSON_ID).toString();
+        i.putExtra(Konfigurasi.PGW_ID, pgwId);
+        startActivity(i);
 
     }
 
