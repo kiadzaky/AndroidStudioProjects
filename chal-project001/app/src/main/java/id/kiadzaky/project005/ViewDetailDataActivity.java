@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 public class ViewDetailDataActivity extends AppCompatActivity {
     private EditText edit_id, edit_name, edit_desg, edit_salary;
     String id;
+    private TextView txt_detail_pegawai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +27,13 @@ public class ViewDetailDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_detail_data);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Detail Data Pegawai");
 
         edit_id = findViewById(R.id.edit_id);
         edit_name = findViewById(R.id.edit_name);
         edit_desg = findViewById(R.id.edit_desg);
         edit_salary = findViewById(R.id.edit_salary);
+
+        txt_detail_pegawai = findViewById(R.id.txt_detail_pegawai);
 
         //menerima intent dari class view data
         Intent receive = getIntent();
@@ -88,6 +91,8 @@ public class ViewDetailDataActivity extends AppCompatActivity {
             edit_name.setText(nama);
             edit_desg.setText(jabatan);
             edit_salary.setText(gaji);
+            txt_detail_pegawai.setText("Detail Pegawai " + nama);
+            getSupportActionBar().setTitle("Detail Pegawai " + nama);
         } catch (Exception e) {
             e.printStackTrace();
         }
