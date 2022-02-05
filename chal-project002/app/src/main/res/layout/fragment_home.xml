@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12sp"
+        android:background="#FF0000"
+        android:text="HOME"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12sp"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/imageFilterView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:src="@drawable/logo_pdip" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12sp"
+            android:layout_weight="1"
+            android:text="Partai Demokrasi Indonesia (PDI) adalah salah satu partai politik di Indonesia yang pernah menjadi kontestan Pemilu. PDI didirikan pada tanggal 10 Januari 1973, merupakan fusi (penggabungan) dari beberapa partai yaitu Partai Nasional Indonesia (PNI), Partai Musyawarah Rakyat Banyak (Partai Murba), Partai Ikatan Pendukung Kemerdekaan Indonesia (Partai IPKI) dan juga dua partai keagamaan Partai Kristen Indonesia (Parkindo) dan Partai Katolik." />
+    </LinearLayout>
+
+</LinearLayout>

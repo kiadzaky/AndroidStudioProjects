@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_settings"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Setting"
+        app:showAsAction="never"/>
+    <item android:id="@+id/menu_camera"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Camera"
+        app:showAsAction="never"/>
+    <item android:id="@+id/menu_share"
+        android:title="Share Apps"
+        app:showAsAction="never"/>
+    <item android:id="@+id/menu_exit"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Exit Apps"
+        app:showAsAction="never"/>
+</menu>
