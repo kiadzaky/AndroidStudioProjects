@@ -2,7 +2,7 @@ package id.kiadzaky.project005;
 
 public class Konfigurasi {
 
-    public static final String LINK = "http://192.168.1.54/pegawai/";
+    public static final String LINK = "http://192.168.1.170/pegawai/";
     //pegawai
     public static final String URL_GET_ALL = LINK+"tampilSemuaPgw.php";
     public static final String URL_GET_DETAIL = LINK+"tampilPgw.php?id=";
