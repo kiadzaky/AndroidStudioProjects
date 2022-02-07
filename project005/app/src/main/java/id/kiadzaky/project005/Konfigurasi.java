@@ -7,7 +7,7 @@ public class Konfigurasi {
     public static final String URL_GET_DETAIL = LINK+"tampilPgw.php?id=";
     public static final String URL_ADD = LINK+"tambahPgw.php";
     public static final String URL_UPDATE = LINK+"updatePgw.php";
-    public static final String URL_DELETE = LINK +"hapusPgw.php";
+    public static final String URL_DELETE = LINK +"hapusPgw.php?id=";
 
     // data json berisi key dan value yang ada di browser
     public static final String KEY_PGW_ID = "id";
