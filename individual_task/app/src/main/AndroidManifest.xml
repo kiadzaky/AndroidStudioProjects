@@ -6,12 +6,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_demokrat"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_demokrat_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Individual_task"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.instruktur.AddInstrukturActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.peserta.AddPesertaActivity"
             android:exported="false" />

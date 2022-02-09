@@ -6,5 +6,6 @@ public class Konfiguration {
     public static final String TABEL_INSTRUKTUR = IP+"individual_task/instruktur/tabelInstruktur.php";
 
     public static final String TAMBAH_PESERTA = IP+"individual_task/peserta/formTambahPeserta.php";
+    public static final String TAMBAH_INSTRUKTUR = IP+"individual_task/instruktur/formTambahInstruktur.php";
 
 }

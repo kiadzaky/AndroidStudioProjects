@@ -33,7 +33,7 @@ public class InstrukturFragment extends Fragment {
         add_peserta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), AddPesertaActivity.class);
+                Intent i = new Intent(getContext(), AddInstrukturActivity.class);
 
                 startActivity(i);
             }
