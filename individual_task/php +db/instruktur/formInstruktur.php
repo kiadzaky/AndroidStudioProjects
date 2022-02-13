@@ -98,7 +98,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="form-group">
-                                                    <label>Id Peserta</label>
+                                                    <label>Id Instruktur</label>
                                                     <input type="text" class="form-control" placeholder="Id Peserta" readonly id ="ins_id" name = "ins_id" required>
                                                 </div>
                                             </div>
@@ -225,7 +225,7 @@
                             $('#delete_name').text(data[0].name);
 
                             // $('#link_delete').href("<?=$link?>/individual_task/peserta/hapusPeserta.php?id=<?=$id?>");
-                            document.getElementById("link_delete").setAttribute("href","<?=$link?>/individual_task/peserta/hapusPeserta.php?id=<?=$id?>");
+                            document.getElementById("link_delete").setAttribute("href","<?=$link?>/individual_task/instruktur/hapusIns.php?id=<?=$id?>");
                         }
                     });                
     </script>

@@ -89,14 +89,17 @@
       <div class="modal-body">
         <p><?=$_SESSION['kata']?></p>
         <?php 
-            if(isset($_SESSION['pes_nama'])){
+            if(isset($_SESSION['kel_id'])){
                 ?>
-                <p>Nama: <?=$_SESSION['pes_nama']?></p>
-                <p>Email: <?=$_SESSION['pes_email']?></p>
-                <p>Hp: <?=$_SESSION['pes_hp']?></p>
+                <p>Id Kelas: <?=$_SESSION['kel_id']?></p>
+                <p>Tanggal Mulai Kelas: <?=$_SESSION['kel_tgl_mulai']?></p>
+                <p>Tanggal Akhir Kelas: <?=$_SESSION['kel_tgl_akhir']?></p>
+                <p>Nama Materi: <?=$_SESSION['mat_nama']?></p>
+                <p>Nama Instruktur: <?=$_SESSION['ins_nama']?></p>
+                <p>Kontak Instruktur: <?=$_SESSION['ins_kontak']?></p>
                 <?php
             }
-            unset($_SESSION['pes_nama']);
+            unset($_SESSION['kel_id']);
         
         ?>
       </div>
@@ -114,14 +117,15 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Instruktur</h4>
+                                <h4 class="card-title">Data Kelas</h4>
                                 <div class="table-responsive">
                                     <table id="zero_config1" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Id Instruktur</th>
-                                                <th>Nama </th>
-                                                <th>No HandPhone</th>
+                                                <th>Id Kelas</th>
+                                                <th>Tanggal</th>
+                                                <th>Instruktur</th>
+                                                <th>Materi</th>
                                             </tr>
                                         </thead>
                                         <tbody id= "data">
@@ -185,13 +189,15 @@
             var link = window.location.hostname;
                     var table = $('#zero_config1').DataTable( {
                             "ajax": {
-                                "url": "http://"+link+"/individual_task/instruktur/tampilSemuaIns.php",
+                                "url": "http://"+link+"/individual_task/kelas/tampilSemuaKel.php",
                             "dataSrc": ""
                             },
                             "columns": [
                                 { "data": "id" },
-                                { "data": "name" },
-                                { "data": "number" },
+                                { "data": "date_mulai" },
+                                { "data": "name_instruktur" },
+                                { "data": "name_materi" },
+                                
                             ]
                         } );
                         $('#zero_config1 tbody').on( 'click', 'tr', function () {
@@ -199,7 +205,7 @@
                         var id = table.row( this ).data().id
                         // console.log();
                         // pindah halaman
-                        window.location.href = "http://"+link+"/individual_task/instruktur/formInstruktur.php?id="+id;
+                        window.location.href = "http://"+link+"/individual_task/kelas/formKel.php?id="+id;
                     } );
 
                     } );

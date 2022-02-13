@@ -17,7 +17,8 @@
 		array_push($result,array(
 			"id"=>$row['ins_id'],
 			"name"=>$row['ins_nama'],
-			"number" => $row['ins_hp']
+			"number" => $row['ins_hp'],
+			"email" => $row['ins_email'],
 		));
 	}
 	

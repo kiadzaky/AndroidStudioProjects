@@ -83,6 +83,7 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <?php 
+                    $id = $_GET['id'];           
                     $link = "http://".$_SERVER['SERVER_NAME'];    
                 ?>
                 
@@ -90,59 +91,65 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <!-- <a href=<?=$link . "/individual_task/peserta/tabelPeserta.php"?>><i class="fas fa-arrow-left">Data Peserta</i></a>                                 -->
-                                <h4 class="card-title">Tambah Peserta </h4>
-                                <form action=<?=$link."/individual_task/peserta/tambahPeserta.php"?> method="POST">
+                                <a href=<?=$link . "/individual_task/kelas/tabelKelas.php"?>><i class="fas fa-arrow-left">Kembali</i></a>                                
+                                <h4 class="card-title">Detail Kelas </h4>
+                                <form action=<?=$link."/individual_task/kelas/updateKel.php"?> method="POST">
                                     <div class="form-body">
                                         <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label>Id Kelas</label>
+                                                    <input type="text" class="form-control" placeholder="Id Kelas" readonly id ="kel_id" name = "kel_id" required>
+                                                </div>
+                                            </div>
                                             <div class="col-md-11">
                                                 <div class="form-group">
-                                                    <label>Nama</label>
-                                                    <input type="text" class="form-control" placeholder="Nama" id ="pes_nama" name = "pes_nama" required>
+                                                    <label>Tanggal Mulai (DD-MM-YYYY)</label>
+                                                    <input type="date" class="form-control" placeholder="Tanggal Mulai" id ="kel_tgl_mulai" name = "kel_tgl_mulai" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-1">
                                                 <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" placeholder="Email" id ="pes_email" name = "pes_email" required>
+                                                    <label>Tanggal Berakhir (DD-MM-YYYY)</label>
+                                                    <input type="date" class="form-control" placeholder="Tanggal Akhir" id ="kel_tgl_akhir" name = "kel_tgl_akhir" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-10">
+                                            <div class="col-md-11">
                                                 <div class="form-group">
-                                                    <label>No HandPhone</label>
-                                                    <input type="number" class="form-control" placeholder="No HandPhone" id ="pes_hp" name = "pes_hp" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Instansi</label>
+                                                    <label>Instruktur</label> <p id="txt_ins" style="color: red; visibility: hidden;">Terubah</p>
                                                     
-                                                </div>
-                                            </div>
-                                            <div class="col-md-10">
-                                                
-                                                <input type="radio" name="pes_instansi" id="pes_instansi_personal" onclick = "hideInputInstansi();" value="Personal" required>Personal
-                                                <input type="radio" name ="pes_instansi" id="pes_instansi_personal" onclick = "showInputInstansi();" required>Instansi
-                                            
-                                                <div style="visibility:hidden; margin-top: 20px" id="input_instansi">
-                                                <input type="text" class="form-control" placeholder="Instansi" id ="pes_instansi">
+                                                    <select name="ins_id" id="ins_id" class="form-control"required>
+                                                        <option value=""></option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    <div class="form-actions" style = "margin-top: 30px">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label>Kontak Instruktur</label>
+                                                    <input type="text" class="form-control" placeholder="Id Peserta" readonly id ="ins_kontak" name = "ins_kontak" required readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="form-group">
+                                                    <label>Materi</label><p id ="txt_mat" style="color: red; visibility: hidden;">Terubah</p>
+                                                    <select name="mat_id" id="mat_id" class="form-control" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+                                    <div class="form-actions">
                                         <div class="text-right">
-                                            <button type="submit" class="btn btn-info">Submit</button>
-                                            <!-- <button class = "btn btn-danger"><a href=<?=$link . "/individual_task/peserta/tabelPeserta.php"?> style ="color:white">Batal</a></button> -->
-                                            <button class = "btn btn-danger" onclick = "showAndroidToast('Hello Android')">Batal</button>
-                                            <script>
-                                                function showAndroidToast(toast) {
-                                                    Android.showToast(toast);
-                                                }
-                                            </script>
+                                            <button type="submit" class="btn btn-info">Edit</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                            Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -155,13 +162,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header btn-danger">
-        <h5 class="modal-title " id="exampleModalLabel">Hapus Data</h5>
+        <h5 class="modal-title " id="exampleModalLabel">Anda Yakin Hapus Data??</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h3 id = "delete_name"></h3>
+        <h3>Id Kelas : </h3><h3 id = "delete_id"></h3>
+        <h3>Nama Instruktur : </h3><h3 id = "delete_ins_name"></h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -222,39 +230,76 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+   
     <script>
-        $.ajax({ 
-                        type: 'GET', 
-                        url: "<?=$link?>/individual_task/peserta/tampilPes.php?id=<?=$id?>",  
-                        dataType: 'json',
-                        success: function (data) { 
-                            console.log(data[0].id);
-                            $('#pes_id').val(data[0].id);
-                            $('#pes_nama').val(data[0].name);                            
-                            $('#pes_email').val(data[0].email);
-                            $('#pes_hp').val(data[0].number);
-                            $('#pes_instansi').val(data[0].agency);
+       new Promise(function(resolve, reject) {
 
-                            $('#delete_name').text(data[0].name);
+            setTimeout(() => resolve(1), 500); // (*)
 
-                            // $('#link_delete').href("<?=$link?>/individual_task/peserta/hapusPeserta.php?id=<?=$id?>");
-                            document.getElementById("link_delete").setAttribute("href","<?=$link?>/individual_task/peserta/hapusPeserta.php?id=<?=$id?>");
-                        }
-                    });                
+            }).then(function(result) { // (**)
+
+                $.getJSON("<?=$link?>/individual_task/instruktur/tampilSemuaIns.php",
+                function (json) {
+                    $.each(json,
+                        function (key, value) {
+                            // console.log(value);
+                        $("#ins_id").append("<option value='" + value.id+ "' data-number= '"+value.number+"' data-email= '"+value.email+"'>" + value.name+ "</option>");
+                    });
+                    $('#ins_id').on('change',function(){
+                        var number = $(this).children('option:selected').data('number');
+                        var email = $(this).children('option:selected').data('email');
+                        var kontak = number + " / " + email;
+                        $('#ins_kontak').val(kontak);
+                        $('#txt_ins').css("visibility", "visible");
+                    });
+                });
+                
+                return result;
+
+            }).then(function(result) { // (***)
+
+                $.getJSON("<?=$link?>/individual_task/materi/tampilSemuaMat.php",
+                function (json) {
+                    $.each(json,
+                        function (key, value) {
+                            // console.log(value);
+                            $("#mat_id").append("<option value='" + value.id+ "' data-name= '"+value.name+"'>" + value.name+ "</option>");
+                            $('#mat_id').on('change',function(){
+                            $('#txt_mat').css("visibility", "visible");
+                        });
+                    });
+                });
+                return result;
+
+            }).then(function(result) {
+                $.ajax({ 
+                            type: 'GET', 
+                            url: "<?=$link?>/individual_task/kelas/tampilKel.php?id=<?=$id?>",  
+                            dataType: 'json',
+                            success: function (data) {  
+                                $('#kel_id').val(data[0].id);
+                                $('#kel_tgl_mulai').val(data[0].date_mulai);
+                                $('#kel_tgl_akhir').val(data[0].date_akhir);
+                                $('#ins_id').val(data[0].id_ins); 
+                                var number = data[0].ins_hp;
+                                var email = data[0].ins_email;
+                                var kontak = number + " / " + email;
+                                $('#ins_kontak').val(kontak); 
+                                console.log(data[0].id_mat);
+                                $('#mat_id').val(data[0].id_mat); 
+
+                                $('#delete_id').text(data[0].id);
+                                $('#delete_ins_name').text(data[0].name_instruktur);
+
+                                // $('#link_delete').href("<?=$link?>/individual_task/peserta/hapusPeserta.php?id=<?=$id?>");
+                                document.getElementById("link_delete").setAttribute("href","<?=$link?>/individual_task/kelas/hapusKelas.php?id=<?=$id?>");
+                            }
+                    });
+                    alert("Data Oke");
+                return result;
+        });
     </script>
     
-    <script>
-    function showInputInstansi() {
-        $('#input_instansi').css("visibility", "visible");
-        $('#pes_instansi').attr("name", "pes_instansi");
-        $('#pes_instansi').attr("required","");
-    }
-    function hideInputInstansi() {
-        $('#input_instansi').css("visibility", "hidden");
-        $('#pes_instansi').removeAttr("name");
-        $('#pes_instansi').removeAttr("required");
-    }
-    </script>                                        
 </body>
 
 </html>

@@ -89,14 +89,14 @@
       <div class="modal-body">
         <p><?=$_SESSION['kata']?></p>
         <?php 
-            if(isset($_SESSION['pes_nama'])){
+            if(isset($_SESSION['ins_nama'])){
                 ?>
-                <p>Nama: <?=$_SESSION['pes_nama']?></p>
-                <p>Email: <?=$_SESSION['pes_email']?></p>
-                <p>Hp: <?=$_SESSION['pes_hp']?></p>
+                <p>Instruktur: <?=$_SESSION['ins_nama']?></p>
+                <p>Materi: <?=$_SESSION['mat_nama']?></p>
+                <p>Peserta: <?=$_SESSION['pes_nama']?></p>
                 <?php
             }
-            unset($_SESSION['pes_nama']);
+            unset($_SESSION['ins_nama']);
         
         ?>
       </div>
@@ -114,14 +114,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Instruktur</h4>
+                                <h4 class="card-title">Data Keikutsertaan Peserta</h4>
                                 <div class="table-responsive">
                                     <table id="zero_config1" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Id Instruktur</th>
-                                                <th>Nama </th>
-                                                <th>No HandPhone</th>
+                                                <th>No</th>
+                                                <th>Tanggal Kelas</th>
+                                                <th class ="text-wrap">Jumlah Peserta</th>
+                                                <th>Instruktur</th>
+                                                <th>Materi</th>
                                             </tr>
                                         </thead>
                                         <tbody id= "data">
@@ -183,26 +185,40 @@
     <script>
         $(document).ready(function() {
             var link = window.location.hostname;
-                    var table = $('#zero_config1').DataTable( {
+                    var table = $('#zero_config1').removeAttr('width').DataTable( {
+                        scrollY:        "500px",
+                        scrollX:        true,
+                        scrollCollapse: true,
                             "ajax": {
-                                "url": "http://"+link+"/individual_task/instruktur/tampilSemuaIns.php",
+                                "url": "http://"+link+"/individual_task/detail_kelas/tampilSemuaDetKel.php",
                             "dataSrc": ""
                             },
                             "columns": [
-                                { "data": "id" },
-                                { "data": "name" },
-                                { "data": "number" },
+                                { "data": "no" },
+                                { "data": "date_kelas" },
+                                { "data": "jml_pes" },
+                                { "data": "ins_nama" },
+                                { "data": "mat_nama" },
+                                
+                            ],
+                            columnDefs: [
+                                {
+                                    render: function (data, type, full, meta) {
+                                        return "<div class='text-wrap width-200'>" + data + "</div>";
+                                    },
+                                    targets: 1
+                                }
                             ]
                         } );
                         $('#zero_config1 tbody').on( 'click', 'tr', function () {
                         // console.log( table.row( this ).data() );
-                        var id = table.row( this ).data().id
+                        var id = table.row( this ).data().kel_id
                         // console.log();
                         // pindah halaman
-                        window.location.href = "http://"+link+"/individual_task/instruktur/formInstruktur.php?id="+id;
+                        window.location.href = "http://"+link+"/individual_task/detail_kelas/formDetKel.php?id="+id;
                     } );
 
-                    } );
+        } );
     </script>
                <script type="text/javascript">
     $(window).on('load',function(){

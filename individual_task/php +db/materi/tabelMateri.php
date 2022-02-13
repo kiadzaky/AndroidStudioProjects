@@ -91,9 +91,7 @@
         <?php 
             if(isset($_SESSION['pes_nama'])){
                 ?>
-                <p>Nama: <?=$_SESSION['pes_nama']?></p>
-                <p>Email: <?=$_SESSION['pes_email']?></p>
-                <p>Hp: <?=$_SESSION['pes_hp']?></p>
+                <p>Nama Materi: <?=$_SESSION['pes_nama']?></p>
                 <?php
             }
             unset($_SESSION['pes_nama']);
@@ -114,14 +112,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Instruktur</h4>
+                                <h4 class="card-title">Data Materi</h4>
                                 <div class="table-responsive">
                                     <table id="zero_config1" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Id Instruktur</th>
+                                                <th>Id Materi</th>
                                                 <th>Nama </th>
-                                                <th>No HandPhone</th>
                                             </tr>
                                         </thead>
                                         <tbody id= "data">
@@ -185,13 +182,12 @@
             var link = window.location.hostname;
                     var table = $('#zero_config1').DataTable( {
                             "ajax": {
-                                "url": "http://"+link+"/individual_task/instruktur/tampilSemuaIns.php",
+                                "url": "http://"+link+"/individual_task/materi/tampilSemuaMat.php",
                             "dataSrc": ""
                             },
                             "columns": [
                                 { "data": "id" },
                                 { "data": "name" },
-                                { "data": "number" },
                             ]
                         } );
                         $('#zero_config1 tbody').on( 'click', 'tr', function () {
@@ -199,7 +195,7 @@
                         var id = table.row( this ).data().id
                         // console.log();
                         // pindah halaman
-                        window.location.href = "http://"+link+"/individual_task/instruktur/formInstruktur.php?id="+id;
+                        window.location.href = "http://"+link+"/individual_task/materi/formMateri.php?id="+id;
                     } );
 
                     } );

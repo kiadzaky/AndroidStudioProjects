@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,17 +15,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import id.kiadzaky.individual_task.Konfiguration;
 import id.kiadzaky.individual_task.R;
-import id.kiadzaky.individual_task.databinding.FragmentGalleryBinding;
-import id.kiadzaky.individual_task.ui.peserta.AddPesertaActivity;
 
 public class InstrukturFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
     private WebView web_view;
     private FloatingActionButton add_peserta;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_peserta, container, false);
         web_view = view.findViewById(R.id.web_view);
         add_peserta = view.findViewById(R.id.add_peserta);
 
@@ -59,9 +55,5 @@ public class InstrukturFragment extends Fragment {
         web_view.loadUrl(Konfiguration.TABEL_INSTRUKTUR );
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+
 }

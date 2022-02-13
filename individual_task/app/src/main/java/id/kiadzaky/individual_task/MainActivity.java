@@ -1,12 +1,14 @@
 package id.kiadzaky.individual_task;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -15,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import id.kiadzaky.individual_task.databinding.ActivityMainBinding;
+import id.kiadzaky.individual_task.ui.cari.SearchKelasByDateActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,5 +67,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_search_kelas_by_date:
+                startActivity(new Intent(MainActivity.this, SearchKelasByDateActivity.class));
+                break;
+            default:
+                Toast.makeText(this, "Pilih Menu dengan Benar", Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

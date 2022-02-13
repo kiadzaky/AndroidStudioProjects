@@ -90,15 +90,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <!-- <a href=<?=$link . "/individual_task/peserta/tabelPeserta.php"?>><i class="fas fa-arrow-left">Data Peserta</i></a>                                 -->
-                                <h4 class="card-title">Tambah Peserta </h4>
-                                <form action=<?=$link."/individual_task/peserta/tambahPeserta.php"?> method="POST">
+                                <h4 class="card-title">Tambah Instruktur </h4>
+                                <form action=<?=$link."/individual_task/instruktur/tambahInstruktur.php"?> method="POST">
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <div class="form-group">
                                                     <label>Nama</label>
-                                                    <input type="text" class="form-control" placeholder="Nama" id ="pes_nama" name = "pes_nama" required>
+                                                    <input type="text" class="form-control" placeholder="Nama" id ="ins_nama" name = "ins_nama" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,37 +105,19 @@
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control" placeholder="Email" id ="pes_email" name = "pes_email" required>
+                                                    <input type="email" class="form-control" placeholder="Email" id ="ins_email" name = "ins_email" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-10">
                                                 <div class="form-group">
                                                     <label>No HandPhone</label>
-                                                    <input type="number" class="form-control" placeholder="No HandPhone" id ="pes_hp" name = "pes_hp" required>
+                                                    <input type="number" class="form-control" placeholder="No HandPhone" id ="ins_hp" name = "ins_hp" required>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>Instansi</label>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="col-md-10">
-                                                
-                                                <input type="radio" name="pes_instansi" id="pes_instansi_personal" onclick = "hideInputInstansi();" value="Personal" required>Personal
-                                                <input type="radio" name ="pes_instansi" id="pes_instansi_personal" onclick = "showInputInstansi();" required>Instansi
-                                            
-                                                <div style="visibility:hidden; margin-top: 20px" id="input_instansi">
-                                                <input type="text" class="form-control" placeholder="Instansi" id ="pes_instansi">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="form-actions" style = "margin-top: 30px">
+                                    <div class="form-actions">
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-info">Submit</button>
-                                            <!-- <button class = "btn btn-danger"><a href=<?=$link . "/individual_task/peserta/tabelPeserta.php"?> style ="color:white">Batal</a></button> -->
                                             <button class = "btn btn-danger" onclick = "showAndroidToast('Hello Android')">Batal</button>
                                             <script>
                                                 function showAndroidToast(toast) {
@@ -242,19 +223,6 @@
                         }
                     });                
     </script>
-    
-    <script>
-    function showInputInstansi() {
-        $('#input_instansi').css("visibility", "visible");
-        $('#pes_instansi').attr("name", "pes_instansi");
-        $('#pes_instansi').attr("required","");
-    }
-    function hideInputInstansi() {
-        $('#input_instansi').css("visibility", "hidden");
-        $('#pes_instansi').removeAttr("name");
-        $('#pes_instansi').removeAttr("required");
-    }
-    </script>                                        
 </body>
 
 </html>

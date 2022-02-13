@@ -3,7 +3,7 @@
 	require_once('koneksi.php');
 	
 	//Membuat SQL Query
-	$sql = "SELECT * FROM `peserta`";
+	$sql = "SELECT * FROM `materi`";
 	
 	//Mendapatkan Hasil
 	$r = mysqli_query($con,$sql);
@@ -15,11 +15,8 @@
 		
 		//Memasukkan Nama dan ID kedalam Array Kosong yang telah dibuat 
 		array_push($result,array(
-			"id"=>$row['pes_id'],
-			"name"=>$row['pes_nama'],
-			"number" => $row['pes_hp'],
-			"email" => $row['pes_email'],
-			"agency" => $row['pes_instansi'],
+			"id"=>$row['mat_id'],
+			"name"=>$row['mat_nama'],
 		));
 	}
 	

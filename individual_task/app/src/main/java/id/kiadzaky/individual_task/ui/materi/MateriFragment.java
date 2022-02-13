@@ -1,4 +1,4 @@
-package id.kiadzaky.individual_task.ui.peserta;
+package id.kiadzaky.individual_task.ui.materi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import id.kiadzaky.individual_task.Konfiguration;
 import id.kiadzaky.individual_task.R;
 
-public class PesertaFragment extends Fragment {
-
+public class MateriFragment extends Fragment {
 
     private WebView web_view;
     private FloatingActionButton add_peserta;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_peserta, container, false);
@@ -30,7 +30,7 @@ public class PesertaFragment extends Fragment {
         add_peserta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), AddPesertaActivity.class);
+                Intent i = new Intent(getContext(), AddMateriActivity.class);
 
                 startActivity(i);
             }
@@ -53,7 +53,6 @@ public class PesertaFragment extends Fragment {
         // Baris di bawah untuk menambahkan scrollbar di dalam WebView-nya
         web_view.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         web_view.setWebViewClient(new WebViewClient());
-        web_view.loadUrl(Konfiguration.TABEL_PESERTA);
+        web_view.loadUrl(Konfiguration.TABEL_MATERI);
     }
-
 }

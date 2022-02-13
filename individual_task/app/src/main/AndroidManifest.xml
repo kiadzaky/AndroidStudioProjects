@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Individual_task"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.cari.SearchKelasByDateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.detail_kelas.AddDetailKelasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.kelas.AddKelasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.materi.AddMateriActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.instruktur.AddInstrukturActivity"
             android:exported="false" />
         <activity
