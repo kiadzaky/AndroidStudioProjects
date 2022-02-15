@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SearchKelasByDateActivity.class));
                 break;
             default:
-                Toast.makeText(this, "Pilih Menu dengan Benar", Toast.LENGTH_SHORT).show();
+
         }
 
         return super.onOptionsItemSelected(item);

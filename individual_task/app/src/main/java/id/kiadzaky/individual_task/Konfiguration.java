@@ -14,6 +14,6 @@ public class Konfiguration {
     public static final String TAMBAH_KELAS = IP+"individual_task/KELAS/formTambahKelas.php";
     public static final String TAMBAH_DETAIL_KELAS = IP+"individual_task/detail_kelas/formTambahDetKelas.php";
 
-    public static final String CARI_KELAS = IP+"individual_task/cari/formCariKelas.php";
+    public static final String CARI_KELAS = IP+"individual_task/cari/formCariKelas.php  ";
 
 }

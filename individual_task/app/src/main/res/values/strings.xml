@@ -7,10 +7,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_peserta">Peserta</string>
-    <string name="menu_instruktur">Instruktur</string>
-    <string name="menu_materi">Materi</string>
-    <string name="menu_kelas">Kelas</string>
+    <string name="menu_peserta">PESERTA</string>
+    <string name="menu_instruktur">INSTRUKTUR</string>
+    <string name="menu_materi">MATERI</string>
+    <string name="menu_kelas">KELAS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
